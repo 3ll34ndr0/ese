@@ -25,6 +25,8 @@ int s[TAM]={0,1,2,3,4,5,6,7,8,9}; //Esto está atado a TAM :(
 
 printf("La lista de números sin ordenar es: \n");
 printArreglo(s);
-
 sort(s);
+printf("La lista ordenada es:\n");
+printArreglo(s);
+/* ¡Chau mundo!*/
 }
