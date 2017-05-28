@@ -18,7 +18,7 @@ char *fgets_wrapper(char *buffer, size_t buflen, FILE *fp)
 }
 
 
-/* Crea una instancia de tipo libro, a partir del nombre nomás */
+/* "Constructor" de un Libro */
 void creaLibro(Libro *libro){
  setLibroName(libro,"");
  setLibroAutor(libro,"");
@@ -166,12 +166,10 @@ void buscaISBN(Libro al[TAM], char * isbn, int cantidad){
   //}
  }
 }
-/* Lo que está arriba son funciones que trabajan con los libros*/
 
 
-/* Menu para la búsqueda y llenado de libros; */
+/* Carga de un libro */
 void   cargarLibro(Libro * lptr, char * nombre, char * autor, char * year, char * editor, char * isbn){
-/* Carga de un libro al arreglo */
 setLibroName(lptr, nombre);
 setLibroAutor(lptr, autor);
 setLibroYear(lptr, year);
