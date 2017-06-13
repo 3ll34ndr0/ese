@@ -1,7 +1,6 @@
 #include "stdio.h"
-#include "string.h"
 #include "stdlib.h"
-#define TAM 3
+#define TAM 5
 
 /* Aplicar a todo 
 
@@ -34,24 +33,24 @@ int incrementa(int a){
 int main(void){
 int (*functionPtr)(int);
 functionPtr = &incrementa;
-int i, ae[TAM] = {0,1,2};
+int i, ae[TAM] = {1,2,3,4,5};
 int *rae;
-for(i=0;i<TAM;i++){
- printf("Hola %i \n", ae[i]);
- }
+printf("Arreglo original: ");
+for(i=0;i<TAM;i++) printf("%i ", ae[i]);
+printf("\n");
 
 /* La versión que devuelve un arrego */
+printf("AplicarATodo    : ");
 rae = aplicarATodo(functionPtr,ae);
-for(i=0;i<TAM;i++){
- printf("Hola %i \n", rae[i]);
- }
+for(i=0;i<TAM;i++) printf("%i ", rae[i]);
+printf("\n");
+
 
 /* La versión destructiva*/
+printf("AplicarATodoD   : ");
 aplicarATodoD(functionPtr,ae);
-for(i=0;i<TAM;i++){
- printf("Hola %i \n", ae[i]);
- }
-
+for(i=0;i<TAM;i++) printf("%i ", ae[i]);
+printf("\n");
 
 return 0;
 }
