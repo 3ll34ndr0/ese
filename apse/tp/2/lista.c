@@ -1,5 +1,6 @@
 #include "lista.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
 Una lista es una estructura de datos lineal en donde las in-
@@ -26,7 +27,7 @@ que se encuentra en la posición p.
 Lista * inicializar(){
    Lista * lista            = (Lista*)malloc(sizeof(Lista));
    lista->cabeza            = (Nodo*)malloc(sizeof(Nodo));
-   lista->cabeza->siguiente = 0; //Null pointer
+   lista->cabeza->siguiente = NULL; //Null pointer
    setDatoNodo((lista->cabeza), 0);//valor de prueba
    lista->cola              = lista->cabeza; //Cola apunta a cabeza
    return lista;
@@ -35,19 +36,24 @@ Lista * inicializar(){
 /* Para acceder a los miembros de la lista */
 int sizeOfLista(Lista * l){
 //	if(!vacio(l));
-	int i=1;
-	while(lista-cabeza->siguiente!=0){i++;}
-	return i;
+   int i=1;
+   Nodo * current = getHeadNode(l);
+   while(current->siguiente!=NULL){
+      i++;
+      current = current->siguiente;
+   }
+   return i;
 }
+
 int getHeadOfLista(Lista * l){
 	return getDatoNodo(l->cabeza);
 }
 int getColaOfLista(Lista * l){
 	return getDatoNodo(l->cola);
 }
-bool lleno(Lista * l){
-	if(l->cabeza->siguiente==0);
-
+Nodo * getHeadNode(Lista * l){
+	return l->cabeza;
+}
 
 
 /* Get and Set para el tipo de dato Nodo */
@@ -57,4 +63,3 @@ int getDatoNodo(Nodo * n){
 void setDatoNodo(Nodo * n, int dato){
 	n->dato = dato;
 }
-
