@@ -89,33 +89,7 @@ Address    : 0x400F C14C
 Pin * pinInit(uint8_t pinNumber){
    Pin * pin       = (Pin*)malloc(sizeof(Pin));
    setPinNumber(pin, pinNumber);
-   /* These are the available ports for the pin type: */
-   //int * puerto       = (int*)malloc(sizeof(uint8_t[8]));
 
-   int puerto[8] = {(1<< LED0),
-   		(1<< LED1),
-   		(1<< LED2),
-   		(1<< LED3),
-   		(1<< LED4),
-   		(1<< LED5),
-   		(1<< LED6),
-   		(1<< LED7)};
-/* These addresses are hardcoded in the leds.h file, following
- * the hardware definitions for the development board used. That
- * way you don't need to change this file if you change the board.
- */
-   LPC_GPIO_TypeDef      *direccion[8] = {LEDADDR0,
-		   LEDADDR1,
-		   LEDADDR2,
-		   LEDADDR3,
-		   LEDADDR4,
-		   LEDADDR5,
-		   LEDADDR6,
-		   LEDADDR7};
-   /* These are the addresses of those ports:
-    *  */
-   pin->port    = puerto[pinNumber];
-   pin->address = direccion[pinNumber];
    return pin;
 }
 
@@ -130,6 +104,35 @@ void setPinAsInput(Pin * pin){
 void setPinAsOutput(Pin * pin){
 	pin->input     = 0;
 	pin->interrupt = 0; /* Just in case ...*/
+	   /* These are the available ports for the pin type: */
+	   //int * puerto       = (int*)malloc(sizeof(uint8_t[8]));
+
+//	   int puerto[8] = {(1<< LED0),
+//	   		(1<< LED1),
+//	   		(1<< LED2),
+//	   		(1<< LED3),
+//	   		(1<< LED4),
+//	   		(1<< LED5),
+//	   		(1<< LED6),
+//	   		(1<< LED7)};
+	/* These addresses are hardcoded in the leds.h file, following
+	 * the hardware definitions for the development board used. That
+	 * way you don't need to change this file if you change the board.
+	 */
+	   LPC_GPIO_TypeDef      *direccion[8] = {LEDADDR0,
+			   LEDADDR1,
+			   LEDADDR2,
+			   LEDADDR3,
+			   LEDADDR4,
+			   LEDADDR5,
+			   LEDADDR6,
+			   LEDADDR7};
+	   /* These are the addresses of those ports:
+	    *  */
+	   pin->address = direccion[pinNumber];
+	   (pin->address)->FIODIR |= (1 << pin->number);
+
+
 }
 
 void setRisingInterrupt(Pin * pin){
@@ -158,13 +161,13 @@ void setLevelLowInterrupt(Pin * pin){
 
 void setPinValue(Pin * pin){
 	pin->value = 1; /* Store the value in the pin data */
-    (pin->address)->FIODIR |= pin->port;
-	(pin->address)->FIOSET  = pin->port;
+    (pin->address)->FIODIR |= pin->number;
+	(pin->address)->FIOSET  = pin->number;
 }
 void clearPinValue(Pin * pin){
 	pin->value = 0;/* Store the value in the pin data */
-	(pin->address)->FIODIR |= pin->port;
-	(pin->address)->FIOCLR  = pin->port;
+	(pin->address)->FIODIR |= pin->number;
+	(pin->address)->FIOCLR  = pin->number;
 }
 uint8_t getPinValue(Pin * pin){
 	return pin->value;
@@ -222,9 +225,10 @@ void configurePin(Pin * pin){
 //            NVIC_EnableIRQ(EINT3_IRQn);      //Habilita la interrupción externa 3
 //            printf ("Configurada la interrupción externa %i\n",pin->priority);
 //        }
-    if(pin->input == 0){
-    	LPC_GPIO2->FIODIR |= (1 << pin->number);
-    	printf ("Configurado %i como salida\n", pin->number);
-    	}
+/* Lo siguiente lo hago ya en el setPinAsOutput() */
+//        if(pin->input == 0){
+//    	(pin->address)->FIODIR |= (1 << pin->number);
+//    	printf ("Configurado %i como salida\n", pin->number);
+//    	}
     } /* if interrupt */
 }
