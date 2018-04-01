@@ -2,7 +2,7 @@
 ### Aplicado al uso de interrupciones externas.
 
 
-En la cabecera [pins.h](https://github.com/3ll34ndr0/ese/blob/master/apse/tp/tfinal/src/pins.h) definimos el tipo de dato Pin:
+En la cabecera [pins.h](https://github.com/3ll34ndr0/ese/blob/master/apse/tp/tfinal/src/pins.h) definimos el tipo de dato **Pin**:
 
 Variable | Tipo | Descripción
 ---|:---:|---
@@ -14,7 +14,7 @@ polarity | `uint8_t` | 1: Flanco de subida (por alto si `mode==0`) 0: Flanco de 
 priority | `uint8_t` | 0-32: Prioridad que tendrá la interrupción
 address | `LPC_GPIO_TypeDef *` | Estructura que contiene todos los registros de configuración del pin.
 
-El código que realiza ese tipo es el siguiente:
+#### El código para implementar el tipo **Pin** es el siguiente:
 ``` c
 
 /* Defino una estructura que contenga las características
