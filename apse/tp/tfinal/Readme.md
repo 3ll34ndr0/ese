@@ -66,3 +66,9 @@ setInterruptPriority(sw2, 3);
 configurePin(sw2); /* Do the actual configuration */
 ```
 
+Hemos implementado una sola ISR externa (en `void EINT3_IRQHandler() {`) y allí por ejemplo encendemos y apagamos un led definido anteriormente en el `main`:
+
+Hemos implementado una sola ISR externa (en `void EINT3_IRQHandler() {`) y allí *por ejemplo* accedemos a un led definido anteriormente en el `main`:
+
+Encendemos o apagamos simplemente con `setPinValue(led);` y `clearPinValue(led)`, siendo la variable `led` un puntero al **tipo de dato abstracto** `Pin`.
+

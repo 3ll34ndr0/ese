@@ -30,13 +30,11 @@ void EINT3_IRQHandler() {
  *       general */
 if(estado == 0){
 setPinValue(led);
-//(led->address)->FIOSET |= 1<<(led->number);
 estado = 1;
 }
 else{
 estado = 0;
 clearPinValue(led);
-//(led->address)->FIOCLR |= 1<<(led->number);
 }
 LPC_GPIOINT->IO0IntClr |= 1 << (sw->number);
 
