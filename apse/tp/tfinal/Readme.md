@@ -5,7 +5,7 @@
 En la cabecera [pins.h](https://github.com/3ll34ndr0/ese/blob/master/apse/tp/tfinal/src/pins.h) definimos el tipo de dato Pin:
 
 Variable | Tipo | Descripción
----|---|---
+---|:---:|---
 number | `uint8_t` | Número de pin (`LED0`, `LED1`,..., `LED7`, `SWITCH_2`, `SWITCH_3`) 
 input  | `uint8_t` | 1: estrada, 0: salida
 interrupt | uint8_t` | 1: interrumpe si es entrada 
