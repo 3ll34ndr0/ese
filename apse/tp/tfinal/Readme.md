@@ -1,4 +1,4 @@
-## Ejemplo de tipos de datos externos.
+## Ejemplo de tipos de datos abstractos.
 ### Aplicado al uso de interrupciones externas.
 
 
@@ -8,8 +8,9 @@ Variable | Tipo | Descripción
 ---|---|---
 number | uint8_t | Número de pin
 input  | uint8_t | 1: estrada, 0: salida
-interrupt | uint8_t | 
-
+interrupt | uint8_t | 1: interrumpe si es entrada 
+mode   | uint8_t | 1: Sensible por flanco 0: Sensible por nivel
+polarity | uint8_t | 1: Flanco de subida (por alto si `mode==0`) 0: Flanco de bajada (bajo)
 
 El código que realiza ese tipo es el siguiente:
 ``` c
