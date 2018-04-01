@@ -56,7 +56,7 @@ void configurePin(Pin * pin);
 ```
 
 ## Cómo usar:
-En el `main` podemos definir un switch de los 2 disponibles en la placa para que generen una interrupción:
+En el `main` podemos definir un **button switch** de los 2 disponibles en la placa para que generen una interrupción:
 
 ```c
 Pin * sw2 = pinInit(SWITCH_2); /* El otro es SWITCH_3 */
@@ -66,7 +66,7 @@ setInterruptPriority(sw2, 3);
 configurePin(sw2); /* Do the actual configuration */
 ```
 
-También podemos definir 8 leds distintos (`LED0`, ..., `LED7`) de forma transparente para el usuario, por ejemplo con las siguietes funciones:
+También podemos definir **8 leds distintos** (`LED0`, ..., `LED7`) de forma transparente para el usuario, por ejemplo con las siguietes funciones:
 ```c
 /* Ahora configuro un led como salida */
 Pin * led2 = pinInit(LED6);
