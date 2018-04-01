@@ -78,3 +78,4 @@ Para atender la interrupción que genera `SWITCH_2` o `SWITCH_3` hemos implement
 
 Encendemos o apagamos simplemente con `setPinValue(led)` y `clearPinValue(led)`, siendo la variable `led` un puntero al **tipo de dato abstracto** `Pin`.
 
+El ejemplo completo de uso de este tipo de dato abstracto se puede ver en [extIntTF.c](src/extIntTF.c)
