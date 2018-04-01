@@ -7,19 +7,11 @@
 #endif
 
 
-/* Next defines are related to the hardware. Better names needed. */
-#define GPIO_LED1_PIN 1 /* todo: Buscar en el manual bien.*/
-#define GPIO_LED2_PIN 2 /* pin2_2 */
-#define GPIO_INTERRUP_PIN 1 /* switch 3*/
-#define GPIO_IRQ_HANDLER EINT3_IRQHandler
-#define GPIO_IRQ_HANDLER2 EINT2_IRQHandler
-
-//////////////////////////////////////////////////////////////////
-#define SWITCH_3 1 /* Para el switch 3 */
-#define SWITCH_2 18 /* Para el switch 2 que está conectado al
-puerto 0_18 */
-#define GPIO_IRQ_HANDLER3 EINT2_IRQHandler //Interrupción externa 2
-//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#define SWITCH_3 1  /* Para el switch 3 ubicado en el puerto 0_1 */
+#define SWITCH_2 18 /* Para el switch 2 que está conectado al    */
+                    /* puerto 0_18                               */
+///////////////////////////////////////////////////////////////////
 
 /* Defino una estructura que contenga las características
  * principales de un pin.
@@ -37,6 +29,8 @@ typedef struct Pin{
 }Pin;
 
 
+/* Encabezados de las funciones auxiliares para el tipo de dato Pin */
+/* todo: No todas están implementadas, pero el ejemplo funciona. */
 Pin * pinInit(uint8_t pinNumber);
 void setPinNumber(Pin * pin, uint8_t number);
 void setPinAsInput(Pin * pin);
@@ -46,7 +40,7 @@ void setFallingInterrupt(Pin * pin);
 void setLevelHighInterrupt(Pin * pin);
 void setLevelLowInterrupt(Pin * pin);
 void setInterruptPriority(Pin * pin, uint8_t priority);
-void readPin(Pin * pin);
+void readPin(Pin * pin); /*todo: No implementada */
 void configurePin(Pin * pin);
 void setPinValue(Pin * pin);
 void clearPinValue(Pin * pin);

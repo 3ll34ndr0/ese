@@ -25,20 +25,20 @@
 int estado = 0;
 Pin * led; /*todo: This is a toy example, remove global variables */
 Pin * sw;
-void GPIO_IRQ_HANDLER() {
+void EINT3_IRQHandler() {
 /* todo: Trabajar sobre esta ISR para hacerla un poco más
  *       general */
 if(estado == 0){
-(led->address)->FIOSET |= 1<<(led->number);
+setPinValue(led);
+//(led->address)->FIOSET |= 1<<(led->number);
 estado = 1;
 }
 else{
 estado = 0;
-(led->address)->FIOCLR |= 1<<(led->number);
+clearPinValue(led);
+//(led->address)->FIOCLR |= 1<<(led->number);
 }
 LPC_GPIOINT->IO0IntClr |= 1 << (sw->number);
-//LPC_GPIOINT->IO0IntClr |= 1 << SWITCH_2;
-//NVIC_ClearPendingIRQ(EINT3_IRQn);//Si estaba pendiente, limpio
 
 /* Gets the IRQ number of the active interrupt */
 uint32_t activeIRQn = NVIC_GetActive (EINT3_IRQn);
@@ -73,7 +73,7 @@ int main(void) {
 	 */
 
 
-Pin * sw3 = pinInit(SWITCH_3);
+Pin * sw3 = pinInit(SWITCH_2);
 setPinAsInput(sw3);
 setRisingInterrupt(sw3); /* pin interrups on positive edge*/
 setInterruptPriority(sw3, 3);

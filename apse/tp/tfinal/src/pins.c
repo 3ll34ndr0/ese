@@ -107,27 +107,10 @@ void setPinAsOutput(Pin * pin){
 	   /* These are the available ports for the pin type: */
 	   //int * puerto       = (int*)malloc(sizeof(uint8_t[8]));
 
-//	   int puerto[8] = {(1<< LED0),
-//	   		(1<< LED1),
-//	   		(1<< LED2),
-//	   		(1<< LED3),
-//	   		(1<< LED4),
-//	   		(1<< LED5),
-//	   		(1<< LED6),
-//	   		(1<< LED7)};
 	/* These addresses are hardcoded in the leds.h file, following
 	 * the hardware definitions for the development board used. That
 	 * way you don't need to change this file if you change the board.
 	 */
-/*	   LPC_GPIO_TypeDef      *direccion[8] = {LEDADDR0,
-			   LEDADDR1,
-			   LEDADDR2,
-			   LEDADDR3,
-			   LEDADDR4,
-			   LEDADDR5,
-			   LEDADDR6,
-			   LEDADDR7};
-			   */
 	   if((pin->number==LED0)||(pin->number==LED1)||(pin->number==LED5)){
 		   pin->address = LPC_GPIO0;/* todo: avoid this hardcoded address*/}
 	   else if((pin->number==LED2)
@@ -135,7 +118,7 @@ void setPinAsOutput(Pin * pin){
 			   ||(pin->number==LED4)
 			   ||(pin->number==LED6)
 			   ||(pin->number==LED7)){
-		   pin->address = LPC_GPIO2;
+		   pin->address = LPC_GPIO2;/* todo: avoid this hardcoded address*/
 	   }
 
 	   (pin->address)->FIODIR |= (1 << pin->number);
@@ -169,34 +152,30 @@ void setLevelLowInterrupt(Pin * pin){
 
 void setPinValue(Pin * pin){
 	pin->value = 1; /* Store the value in the pin data */
-    (pin->address)->FIODIR |= pin->number;
-	(pin->address)->FIOSET  = pin->number;
+	(pin->address)->FIOSET |= 1 << (pin->number);
+
 }
 void clearPinValue(Pin * pin){
 	pin->value = 0;/* Store the value in the pin data */
-	(pin->address)->FIODIR |= pin->number;
-	(pin->address)->FIOCLR  = pin->number;
+	(pin->address)->FIOCLR |= 1 << (pin->number);
 }
 uint8_t getPinValue(Pin * pin){
-	return pin->value;
+	return pin->value; /*todo: Should read the value directly from the port?*/
 }
 
 void setInterruptPriority(Pin * pin, uint8_t priority){
 	pin->priority = priority;
 }
 
-/* T his function will do the actual configuration of the pin
- * The other functions set, clear and read the value of the
+/* This function will do the actual configuration of the pin.
+ * Some other functions set, clear and read the value of the
  * Pin struct, but this fuction will read every data from the
- * Pin struct and configure the board using the cmsis funtions*/
+ * struct and configure the board using the cmsis funtions*/
 void configurePin(Pin * pin){
 	if(pin->input == 1){
-	/* Configurado como entrada*/
-//       LPC_GPIO0->FIODIR &= ~(1 << (pin->number)); /* todo: desharcodear*/
-//       printf ("Configurado el pin %i como entrada\n", pin->number);
-       LPC_GPIO0->FIODIR &= ~(1 << (pin->number));
-       printf ("Configurado pin0_18 como entrada\n");
-//       LPC_GPIOINT->IO0IntEnR |= 1 << GPIO_INTERRUP_PIN;
+	/* Configura como entrada*/
+       LPC_GPIO0->FIODIR &= ~(1 << (pin->number)); /*todo: hardcoded */
+       printf ("Configurado pin %i como entrada\n", pin->number);
 	}
     if(pin->interrupt == 1){
     	/*Habilitada interrupción externa por pin*/
