@@ -54,3 +54,15 @@ void readPin(Pin * pin); /*todo: No implementada */
 void configurePin(Pin * pin);
 
 ```
+
+## Cómo usar:
+En el `main` podemos definir un switch de los 2 disponibles en la placa para que generen una interrupción:
+
+```c
+Pin * sw2 = pinInit(SWITCH_2);
+setPinAsInput(sw2);
+setRisingInterrupt(sw2); /* pin interrups on positive edge*/
+setInterruptPriority(sw2, 3);
+configurePin(sw2); /* Do the actual configuration */
+```
+

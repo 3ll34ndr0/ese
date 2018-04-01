@@ -73,13 +73,12 @@ int main(void) {
 	 */
 
 
-Pin * sw3 = pinInit(SWITCH_2);
-setPinAsInput(sw3);
-setRisingInterrupt(sw3); /* pin interrups on positive edge*/
-setInterruptPriority(sw3, 3);
-configurePin(sw3); /* Do the actual configuration */
-sw = sw3;
-
+Pin * sw2 = pinInit(SWITCH_2);
+setPinAsInput(sw2);
+setRisingInterrupt(sw2); /* pin interrups on positive edge*/
+setInterruptPriority(sw2, 3);
+configurePin(sw2); /* Do the actual configuration */
+sw = sw2; /* sw is a global var */
 
 //Pin * sw2 = pinInit(SWITCH_2);
 //setPinAsInput(sw2);
