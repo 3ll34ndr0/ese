@@ -13,6 +13,7 @@ mode   | `uint8_t` | 1: Sensible por flanco 0: Sensible por nivel
 polarity | `uint8_t` | 1: Flanco de subida (por alto si `mode==0`) 0: Flanco de bajada (bajo)
 priority | `uint8_t` | 0-32: Prioridad que tendrá la interrupción
 address | `LPC_GPIO_TypeDef *` | Estructura que contiene todos los registros de configuración del pin.
+
 El código que realiza ese tipo es el siguiente:
 ``` c
 
