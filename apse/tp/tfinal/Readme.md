@@ -55,8 +55,9 @@ void configurePin(Pin * pin);
 
 ```
 
-## Cómo usar:
-En el `main` podemos definir un **button switch** de los 2 disponibles en la placa para que generen una interrupción:
+## Cómo usar
+En el `main` simplemente incluimos las cabeceras `pins.h` `leds.h` y ya
+podemos definir entradas y salidas usando convenientemente el tipo **`Pin`**. Por ejemplo, definimos un **button switch** de los 2 disponibles en la placa para que generen una interrupción:
 
 ```c
 Pin * sw2 = pinInit(SWITCH_2); /* El otro es SWITCH_3 */

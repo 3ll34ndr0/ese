@@ -173,7 +173,9 @@ void setInterruptPriority(Pin * pin, uint8_t priority){
  * struct and configure the board using the cmsis funtions*/
 void configurePin(Pin * pin){
 	if(pin->input == 1){
-	/* Configura como entrada*/
+	/* Configurawq
+	 * q
+	 *  como entrada*/
        LPC_GPIO0->FIODIR &= ~(1 << (pin->number)); /*todo: hardcoded */
        printf ("Configurado pin %i como entrada\n", pin->number);
 	}
