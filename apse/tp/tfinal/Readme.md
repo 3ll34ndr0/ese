@@ -6,12 +6,13 @@ Definimos el tipo de dato Pin:
 
 Variable | Tipo | Descripción
 ---|---|---
-number | uint8_t | Número de pin (`LED0`, `LED1`,..., `LED7`, `SWITCH_2`, `SWITCH_3`) 
-input  | uint8_t | 1: estrada, 0: salida
-interrupt | uint8_t | 1: interrumpe si es entrada 
-mode   | uint8_t | 1: Sensible por flanco 0: Sensible por nivel
-polarity | uint8_t | 1: Flanco de subida (por alto si `mode==0`) 0: Flanco de bajada (bajo)
-
+number | `uint8_t` | Número de pin (`LED0`, `LED1`,..., `LED7`, `SWITCH_2`, `SWITCH_3`) 
+input  | `uint8_t` | 1: estrada, 0: salida
+interrupt | uint8_t` | 1: interrumpe si es entrada 
+mode   | `uint8_t` | 1: Sensible por flanco 0: Sensible por nivel
+polarity | `uint8_t` | 1: Flanco de subida (por alto si `mode==0`) 0: Flanco de bajada (bajo)
+priority | `uint8_t` | 0-32: Prioridad que tendrá la interrupción
+address | `LPC_GPIO_TypeDef *` | Estructura que contiene todos los registros de configuración del pin.
 El código que realiza ese tipo es el siguiente:
 ``` c
 
