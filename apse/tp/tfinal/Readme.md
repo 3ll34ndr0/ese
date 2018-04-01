@@ -68,7 +68,10 @@ configurePin(sw2); /* Do the actual configuration */
 
 También podemos definir 8 leds distintos (`LED0`, ..., `LED7`) de forma transparente para el usuario, por ejemplo con las siguietes funciones:
 ```c
-codigo aqui;
+/* Ahora configuro un led como salida */
+Pin * led2 = pinInit(LED6);
+setPinAsOutput(led2); 
+configurePin(led2); /* Ejecuta las configuraciónes que quedan pendientes*/
 ```
 
 Para atender la interrupción que genera `SWITCH_2` o `SWITCH_3` hemos implementado una sola ISR externa (en `void EINT3_IRQHandler() {`) y allí por ejemplo encendemos y apagamos un led definido anteriormente en el `main`:
