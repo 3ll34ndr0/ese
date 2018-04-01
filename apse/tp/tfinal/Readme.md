@@ -42,6 +42,9 @@ Pin * pinInit(uint8_t pinNumber);
 void setPinNumber(Pin * pin, uint8_t number);
 void setPinAsInput(Pin * pin);
 void setPinAsOutput(Pin * pin);
+void setPinValue(Pin * pin);
+void clearPinValue(Pin * pin);
+uint8_t getPinValue(Pin * pin);
 void setRisingInterrupt(Pin * pin);
 void setFallingInterrupt(Pin * pin);
 void setLevelHighInterrupt(Pin * pin);
@@ -49,9 +52,5 @@ void setLevelLowInterrupt(Pin * pin);
 void setInterruptPriority(Pin * pin, uint8_t priority);
 void readPin(Pin * pin); /*todo: No implementada */
 void configurePin(Pin * pin);
-void setPinValue(Pin * pin);
-void clearPinValue(Pin * pin);
-uint8_t getPinValue(Pin * pin);
-
 
 ```
