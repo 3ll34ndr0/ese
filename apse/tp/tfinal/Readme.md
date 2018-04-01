@@ -2,7 +2,7 @@
 ### Aplicado al uso de interrupciones externas.
 
 
-En el archivo [pins.h](https://github.com/3ll34ndr0/ese/blob/master/apse/tp/tfinal/src/pins.h) definimos el tipo de dato Pin:
+En la cabecera [pins.h](https://github.com/3ll34ndr0/ese/blob/master/apse/tp/tfinal/src/pins.h) definimos el tipo de dato Pin:
 
 Variable | Tipo | Descripción
 ---|---|---
