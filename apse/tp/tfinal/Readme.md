@@ -6,7 +6,7 @@ Definimos el tipo de dato Pin:
 
 Variable | Tipo | Descripción
 ---|---|---
-number | uint8_t | Número de pin
+number | uint8_t | Número de pin (`LED0`, `LED1`,..., `LED7`, `SWITCH_2`, `SWITCH_3`) 
 input  | uint8_t | 1: estrada, 0: salida
 interrupt | uint8_t | 1: interrumpe si es entrada 
 mode   | uint8_t | 1: Sensible por flanco 0: Sensible por nivel
