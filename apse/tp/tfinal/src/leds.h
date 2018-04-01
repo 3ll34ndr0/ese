@@ -21,7 +21,7 @@
 
 //#define LED2pIN 17 //LED2 => Pin 22
 #define LED0 17 //P0
-#define LED1 22  //P0_22
+#define LED1 22  //P0_22 //No funciona */
 #define LED2 2   //P2_-2
 #define LED3 3 //P2_3
 #define LED4 4 //P2_4

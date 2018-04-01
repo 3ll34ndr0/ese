@@ -119,7 +119,7 @@ void setPinAsOutput(Pin * pin){
 	 * the hardware definitions for the development board used. That
 	 * way you don't need to change this file if you change the board.
 	 */
-	   LPC_GPIO_TypeDef      *direccion[8] = {LEDADDR0,
+/*	   LPC_GPIO_TypeDef      *direccion[8] = {LEDADDR0,
 			   LEDADDR1,
 			   LEDADDR2,
 			   LEDADDR3,
@@ -127,9 +127,17 @@ void setPinAsOutput(Pin * pin){
 			   LEDADDR5,
 			   LEDADDR6,
 			   LEDADDR7};
-	   /* These are the addresses of those ports:
-	    *  */
-	   pin->address = direccion[pinNumber];
+			   */
+	   if((pin->number==LED0)||(pin->number==LED1)||(pin->number==LED5)){
+		   pin->address = LPC_GPIO0;/* todo: avoid this hardcoded address*/}
+	   else if((pin->number==LED2)
+			   ||(pin->number==LED3)
+			   ||(pin->number==LED4)
+			   ||(pin->number==LED6)
+			   ||(pin->number==LED7)){
+		   pin->address = LPC_GPIO2;
+	   }
+
 	   (pin->address)->FIODIR |= (1 << pin->number);
 
 
@@ -184,12 +192,15 @@ void setInterruptPriority(Pin * pin, uint8_t priority){
 void configurePin(Pin * pin){
 	if(pin->input == 1){
 	/* Configurado como entrada*/
+//       LPC_GPIO0->FIODIR &= ~(1 << (pin->number)); /* todo: desharcodear*/
+//       printf ("Configurado el pin %i como entrada\n", pin->number);
        LPC_GPIO0->FIODIR &= ~(1 << (pin->number));
-       printf ("Configurado el pin %i como entrada\n", pin->number);
+       printf ("Configurado pin0_18 como entrada\n");
+//       LPC_GPIOINT->IO0IntEnR |= 1 << GPIO_INTERRUP_PIN;
 	}
     if(pin->interrupt == 1){
     	/*Habilitada interrupción externa por pin*/
-    	LPC_GPIOINT->IO0IntEnR |= 1 << GPIO_INTERRUP_PIN;
+    	LPC_GPIOINT->IO0IntEnR |= 1 << (pin->number);
     	printf ("Habilitada interrupción externa por pin %i\n", pin->number);
 /* Una vez configurado, hay que habilitar: */
     	/* EINT3_IRQn es una de las 4 interrupciones externas*/

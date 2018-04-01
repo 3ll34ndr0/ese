@@ -3,6 +3,7 @@
 #endif
 #include <stdio.h>
 #include "pins.h"
+#include "leds.h"
 
 
 
@@ -22,18 +23,21 @@
  *
  */
 int estado = 0;
-
+Pin * led; /*todo: This is a toy example, remove global variables */
+Pin * sw;
 void GPIO_IRQ_HANDLER() {
-
+/* todo: Trabajar sobre esta ISR para hacerla un poco más
+ *       general */
 if(estado == 0){
-LPC_GPIO2->FIOSET |= 1<<GPIO_LED2_PIN;
+(led->address)->FIOSET |= 1<<(led->number);
 estado = 1;
 }
 else{
-LPC_GPIO2->FIOCLR |= 1<<GPIO_LED2_PIN;
 estado = 0;
+(led->address)->FIOCLR |= 1<<(led->number);
 }
-LPC_GPIOINT->IO0IntClr |= 1 << SWITCH_3;
+LPC_GPIOINT->IO0IntClr |= 1 << (sw->number);
+//LPC_GPIOINT->IO0IntClr |= 1 << SWITCH_2;
 //NVIC_ClearPendingIRQ(EINT3_IRQn);//Si estaba pendiente, limpio
 
 /* Gets the IRQ number of the active interrupt */
@@ -74,6 +78,7 @@ setPinAsInput(sw3);
 setRisingInterrupt(sw3); /* pin interrups on positive edge*/
 setInterruptPriority(sw3, 3);
 configurePin(sw3); /* Do the actual configuration */
+sw = sw3;
 
 
 //Pin * sw2 = pinInit(SWITCH_2);
@@ -81,13 +86,14 @@ configurePin(sw3); /* Do the actual configuration */
 //setRisingInterrupt(sw2);
 //setInterruptPriority(sw2, 2);
 //configurePin(sw2);
+//sw = sw2;
 
 
-/* Ahora configuro el led 2 como salida */
-Pin * led2 = pinInit(GPIO_LED2_PIN);
-setPinAsOutput(led2);
-configurePin(led2); /* Realizar la configuración*/
-
+/* Ahora configuro un led como salida */
+Pin * led2 = pinInit(LED6);
+setPinAsOutput(led2); //led is a global variable
+configurePin(led2); /* Ejecuta las configuraciónes que quedan pendientes*/
+led = led2;
 while(1);
 return 0 ;
 }
