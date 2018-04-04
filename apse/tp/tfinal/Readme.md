@@ -80,3 +80,9 @@ Para atender la interrupción que genera `SWITCH_2` o `SWITCH_3` hemos implement
 Encendemos o apagamos simplemente con `setPinValue(led)` y `clearPinValue(led)`, siendo la variable `led` un puntero al **tipo de dato abstracto** `Pin`.
 
 El ejemplo completo de uso de este tipo de dato abstracto se puede ver en [extIntTF.c](src/extIntTF.c)
+
+### En C++
+Partimos de lo desarrollado en **C** y transformamos directamente a una clase, sin ningún tipo de cambio en la estructura. El código se puede [ver aquí](cpp/src/eintTF.cpp)
+
+#### A tener en cuenta
+Para definir la ISR, fué necesario hacer un cambio en el archivo [cr_startup_lpc175x_6x.cpp](cpp/src/cr_startup_lpc175x_6x.cpp). Básicamente una definición del alias para la ISR por defecto, le agregamos el modificador `WEAK`. Sin ese cambio, nunca entra a la ISR definida por nosotros, y cae en la ISR por defecto (un loop infinito).

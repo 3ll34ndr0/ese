@@ -155,10 +155,11 @@ void EINT3_IRQHandler() {
          estado = 0;
          led.clear();
          }
+      /* Interrupción atendida */
       LPC_GPIOINT->IO0IntClr |= 1 << sw.getNumber();
 
-   }
-}
+                         }
+            }/* extern*/
 
 
 int main(void) {
@@ -214,7 +215,6 @@ int main(void) {
     // Enter an infinite loop, just incrementing a counter
     while(1) {
         i++ ;
-        cout << i;
     }
     return 0 ;
 
