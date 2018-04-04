@@ -77,6 +77,9 @@ WEAK void PendSV_Handler(void);
 WEAK void SysTick_Handler(void);
 WEAK void IntDefaultHandler(void);
 
+/* Esto fué necesario ponerlo acá ... */
+WEAK void EINT3_IRQHandler(void) ALIAS(IntDefaultHandler);
+
 //*****************************************************************************
 //
 // Forward declaration of the specific IRQ handlers. These are aliased
@@ -106,7 +109,9 @@ void RTC_IRQHandler(void) ALIAS(IntDefaultHandler);
 void EINT0_IRQHandler(void) ALIAS(IntDefaultHandler);
 void EINT1_IRQHandler(void) ALIAS(IntDefaultHandler);
 void EINT2_IRQHandler(void) ALIAS(IntDefaultHandler);
-void EINT3_IRQHandler(void) ALIAS(IntDefaultHandler);
+// Lo tuve que comentar porque no funcionaba. Lo puse
+// arriba como WEAK.
+//void EINT3_IRQHandler(void) ALIAS(IntDefaultHandler);
 void ADC_IRQHandler(void) ALIAS(IntDefaultHandler);
 void BOD_IRQHandler(void) ALIAS(IntDefaultHandler);
 void USB_IRQHandler(void) ALIAS(IntDefaultHandler);
