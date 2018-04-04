@@ -157,7 +157,6 @@ void EINT3_IRQHandler() {
          }
       /* Interrupción atendida */
       LPC_GPIOINT->IO0IntClr |= 1 << sw.getNumber();
-
                          }
             }/* extern*/
 
@@ -172,6 +171,8 @@ int main(void) {
 	Pin led6(LED6);
 	led6.setAsOutput();
 	led = led6; /*led is a global var */
+
+	/*
 	Pin led1(LED1);
 	led1.setAsOutput();
 	Pin led2(LED2);
@@ -184,8 +185,10 @@ int main(void) {
 	led5.setAsOutput();
 	Pin led7(LED7);
 	led7.setAsOutput();
+	*/
 
 	/*Apaga los leds*/
+	/*
     led1.set();
 	led2.set();
     led3.set();
@@ -193,22 +196,15 @@ int main(void) {
     led5.set();
     led6.set();
     led7.set();
-
+*/
 
 
 	/* Ahora configuro un botón como entrada*/
 	Pin sw2(SWITCH_3);
 	sw2.setAsInput();
-//	sw2.setInterruptPriority(1);
-//	sw2.setRisingInterrupt();
+	sw2.setInterruptPriority(1);
+	sw2.setRisingInterrupt();
 	sw = sw2; /* sw is a global var */
-
-
-    LPC_PORT_0->FIODIR &= ~(1 << SWITCH_3);
-    LPC_GPIOINT->IO0IntEnR |= 1 << SWITCH_3;
-    NVIC_ClearPendingIRQ(EINT3_IRQn);//Si estaba pendiente, limpio
-    NVIC_SetPriority(EINT3_IRQn, 1); // Le dá prioridad 1 a la int externa 3
-    NVIC_EnableIRQ(EINT3_IRQn);      //Habilita la interrupción externa 3
 
     // Force the counter to be placed into memory
     volatile static int i = 0 ;
