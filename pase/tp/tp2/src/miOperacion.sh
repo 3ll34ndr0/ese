@@ -9,12 +9,12 @@ then
    do
       case "$1" in
             -s) #echo "Sumatoria:"
-                operation="sumatoria";;
-            -p) #echo "Productoria:"
-                operation="productoria";;
+                operation="Sumatoria";;
+            -p) #echo "Se realizará una productoria..."
+                operation="Productoria";;
             -i) limiteSuperior=$2
                 escalar=$3
-                echo "$operation entre 1 y $limiteSuperior ... "
+                echo "$operation con i desde 1 hasta $limiteSuperior ... "
                 shift 3;;
             *) echo "$1 no es una opción válida";;
       esac
@@ -36,11 +36,23 @@ else
 ###################################################
 # Acá defino que hacer, si la sumatoria o productoria
 # en base al valor de la variable $operation
-if [ $operation="sumatoria" ]
+if [ $operation = "Sumatoria" ]
 then
-    echo "Bla bla $operation"
-    for i
-else
-    echo "Bla bla $operation"
+    echo "de $escalar + i"
+    acum=0
+    for (( i=1; i <=limiteSuperior ; i++ ))
+    do
+        (( acum += i + escalar ))
+    done
+    echo "El resultado es $acum"
+elif [ $operation = "Productoria" ]
+then
+    echo "de $escalar * i"
+    acum=1
+    for (( i=1; i <=limiteSuperior ; i++ ))
+    do
+        (( acum *= i * escalar ))
+    done
+    echo "El resultado es $acum"
 fi
 
