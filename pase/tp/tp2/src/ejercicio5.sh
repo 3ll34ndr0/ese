@@ -1,5 +1,8 @@
 #!/bin/bash
-# Ejercicio 5: Escriba un script que defina la función mayor. La función recibe como parámetros dos números y retorna como resultado el mayor. El script pide al usuario dos números e invoca a la función. Luego de realizada dicha tarea imprime la leyenda “El número mayor es:” y seguidamente el valor retornado por la función.
+# Ejercicio 5: Escriba un script que defina la función mayor. La función recibe como parámetros
+# dos números y retorna como resultado el mayor. El script pide al usuario dos números e invoca
+# a la función. Luego de realizada dicha tarea imprime la leyenda “El número mayor es:” y seguidamente
+# el valor retornado por la función.
 
 
 mayor () {

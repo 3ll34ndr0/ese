@@ -1,0 +1,8 @@
+ Pruebo para ver cuántas veces
+ ojota encuentra la palabra ojota
+ en este archivo.
+ Supuestamente acá escribo ojota
+ de nuevo pero aca no escribo
+ aca si escribo ojota
+ y aca ojota por última vez.
+ No, ojota y ojota .
