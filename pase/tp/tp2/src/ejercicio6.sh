@@ -27,7 +27,7 @@ cuantasLineas () {
     local contador
 while read line
 do
-    echo $line
+#    echo $line
     for word in $line
        do
               if [ $word = $2 ]
@@ -44,5 +44,6 @@ echo $contador
 # Main
 read -p "Ingrese un nombre de archivo: " archivo
 read -p "Ingrese una palabra a buscar en el archivo $archivo: " palabra
-#$echo "Se encontraron $(cuantasLineas $archivo $palabra) líneas que contienen esa palabra"
-cuantasLineas $archivo $palabra
+echo "Se encontraron $(cuantasLineas $archivo $palabra) líneas que contienen esa palabra"
+echo "La palabra $palabra aparece $(cuantasVeces $archivo $palabra) veces en ese archivo"
+
