@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DIRECTORIO=$1
 ARCHIVO_BUS=$2
 shift 2
