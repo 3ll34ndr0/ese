@@ -1,0 +1,3 @@
+En este directorio se encuentran todos los ejercicios del Trabajo Práctico 2.
+
+En cada script está agregado el enunciado del ejercicio...
