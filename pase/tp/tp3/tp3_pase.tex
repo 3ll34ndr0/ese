@@ -1,0 +1,49 @@
+\input{preamble_ese}
+\everymath{\displaystyle} %Esto es para que la matemática dentro de texto sea más grande que el texto
+
+\begin{document}
+\coverpage{Trabajo Práctico 3 - Free RTOS.}
+  
+\subsection*{Ejercicio 1}
+Las tareas se crean en el main y se definen por fuera. La tarea \verb|vLEDTask1| enciende/apaga un led con un período de \verb|configTICK_RATE_HZ / 6|.
+
+La tarea \verb|vLEDTask2| enciende/apaga otro led en un período de \verb|configTICK_RATE_HZ / 14|.
+
+La tarea \verb|vUARTTask| imprime por la salida estandar de debugueo el texto \verb|Tick: contador|, siendo \verb|contador| un entero que se incrementa cada \verb|configTICK_RATE_HZ|.
+ 
+Las tres tareas tienen la misma prioridad: \verb|tskIDLE_PRIORITY| que está definido en el archivo \verb|task.h| con un valor de cero.
+ 
+\verb|configTICK_RATE_HZ| está definido en el archivo \verb|FREERTOSConfig.h| con el valor de 1000. Estando el tick definido en un milisegundo. 
+
+\vspace{0.3cm}
+\includegraphics[scale=0.4]{images/tp_3_1}
+\captionof{figure}{Luego de varios minutos hacemos una captura de pantalla del IDE.}
+%\includegraphics[scale=0.7]{images/tp_3_2}
+%\captionof{figure}{bla}
+
+%\vspace{1cm}
+
+\subsubsection*{Ejercicio 2}
+Cuando todas las tareas tienen igual prioridad, el orden es: Tarea 4, 1, 2 y 3. Al poner prioridad máxima a la 4 y mínima a la tarea 1, Se ejecutó tarea 4, 3, 2 y 1. Al cambiar la prioridad a todas las tareas, sucedió que el orden en que se ejecutaron las tareas sigue la definición de prioridades. 
+
+\vspace{0.2cm}
+\includegraphics[scale=0.34]{images/tp_3}
+\captionof{figure}{Captura de pantalla con secuencia 4, 1, 2, 3, ...}
+\vspace{0.2cm}
+\includegraphics[scale=0.4]{images/tp_3_2}
+\captionof{figure}{Captura de pantalla luego de reasignación de prioridades.}
+\vspace{0.5cm}
+
+\subsubsection*{Ejercicio 3}
+Agregamos una tarea más, y también creamos una variable global para guardar el \emph{handle} de la tarea 1 (ver línea 8), para poder suspenderla y reanudarla desde la tarea 5 (ver línea 82 y 87):
+\lstinputlisting[language=C, firstline=32]{src/ejercicio_3.c}
+% Otro parámetro, por si es necesario cortar el archivo: lastline=157 
+
+\includegraphics[scale=0.4]{images/tp_3_ej3}
+\captionof{figure}{Usando la impresión por pantalla para ver el efecto de suspender/reanudar una tarea...}
+\vspace{0.2cm}
+
+\paragraph{Comentarios}
+Las tareas se ejecutan según las prioridades asignadas, y es posible verlo a simple vista cuando utilizamos la salida por terminal con la función \verb|DEBUGOUT|. Pero cuando las tareas sólo encienden/apagan los leds, el resultado es un parpadeo conjunto de todos los leds. No se perciben el orden en que se realizan las tareas. Tal funcionamiento es el esperado, y podemos decir que a simple vista las 5 tareas se realizan al mismo tiempo.
+
+\end{document}
