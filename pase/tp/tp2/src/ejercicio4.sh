@@ -21,7 +21,7 @@ done
 }
 
 # Llama al menú para obtener la opción del/a usuario/a
-#menu # Como la variable opcion es global no la asigno a nada
+#menu.  Como la variable opcion es global no la asigno a nada
 opcionUser= menu
 case $opcion in
     1)read -p "Ingrese dos números: " sum1 sum2

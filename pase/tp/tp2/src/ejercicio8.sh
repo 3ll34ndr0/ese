@@ -4,7 +4,6 @@
 
 apliqueATodos () {
     comando=$1
-    #echo "Antes digo $algo"
     shift
     while [ -n "$1" ]
     do

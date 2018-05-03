@@ -46,4 +46,24 @@ Agregamos una tarea más, y también creamos una variable global para guardar el
 \paragraph{Comentarios}
 Las tareas se ejecutan según las prioridades asignadas, y es posible verlo a simple vista cuando utilizamos la salida por terminal con la función \verb|DEBUGOUT|. Pero cuando las tareas sólo encienden/apagan los leds, el resultado es un parpadeo conjunto de todos los leds. No se perciben el orden en que se realizan las tareas. Tal funcionamiento es el esperado, y podemos decir que a simple vista las 5 tareas se realizan al mismo tiempo.
 
+\subsubsection*{Ejercicio 4}
+En la \emph{tarea 5} agregamos el siguiente código:
+\lstinputlisting[language=C, firstline=118, lastline=122]{src/ejercicio_4.c}
+La salida por terminal es la siguiente:
+
+\includegraphics[scale=0.4]{images/tp_3_ej4}
+%\captionof{figure}{Usando la impresión por pantalla para ver el efecto de suspender/reanudar una tarea...}
+\vspace{0.2cm}
+\paragraph{Comentarios:}
+Eliminar una tarea es muy fácil. Dos cosas a tener en cuenta: 
+\begin{itemize}
+    \item Intentar eliminar dos veces una tarea genera un \emph{hard Fault}.
+    \item La memoria que se reserva con \emph{malloc} debe liberarse antes de eliminar la tarea. Y para liberar la zona de memoria utilizada por el \emph{kernel} para la tarea, debe estar habilitada la tarea \emph{idle}.
+\end{itemize}
+\subsubsection*{Ejercicio 5}
+En este ejercicio, nuestro objetivo fué crear una cola de 5 items, para guardar un mensaje de hasta 40 caracteres. Esto lo hicimos en la línea 113. Luego, 3 tareas insertan un mensaje en la cola, como se puede ver en las líneas 37, 53 y 69. En otra tarea, vaciamos la cola imprimiendo cada mensaje, como se puede ver en las líneas 89 hasta 99.
+\lstinputlisting[language=C, firstline=31 ]{src/ejercicio_05.c}
+\subsubsection*{Ejercicio 6}
+En este ejercicio, creamos un semáforo en la línea 41. Mientras el pulsador no se acciona, este semáforo no puede ser tomado (línea 45), ya que en la ISR se ejecuta el \emph{give} (línea 22).
+\lstinputlisting[language=C]{src/ejercicio_06.c}
 \end{document}

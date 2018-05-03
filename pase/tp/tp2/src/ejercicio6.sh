@@ -27,7 +27,6 @@ cuantasLineas () {
     local contador
 while read line
 do
-#    echo $line
     for word in $line
        do
               if [ $word = $2 ]
