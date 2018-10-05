@@ -29,10 +29,10 @@ Comparación de curvas del NMOS para canal largo y canal corto.
 %\verb|configTICK_RATE_HZ| está definido en el archivo \verb|FREERTOSConfig.h| con el valor de 1000. Estando el tick definido en un milisegundo. 
 
 \vspace{0.3cm}
-\includegraphics[scale=0.4, angle=0]{images/todas}
+\includegraphics[scale=0.6, angle=0]{images/todas}
 \captionof{figure}{$I_D$ vs. $V_{GS}$ (escala lineal)}
 \vspace{0.3cm}
-\includegraphics[scale=0.4, angle=-90]{images/parametric}
+\includegraphics[scale=0.7]{images/parametric}
 \captionof{figure}{$I_D$ vs. $V_{DS}$ , barriendo $V_{GS}$ de forma paramétrica}
 \subsubsection{$I_D$ vs. $V_{GS}$} 
 \begin{itemize}
@@ -40,6 +40,34 @@ Comparación de curvas del NMOS para canal largo y canal corto.
 	\item $V_{th}$ de M2 ($L=3\mu$m): $0.69121$V
 	\item $V_{th}$ de M3 ($L=6\mu$m): $0.680835$V
 \end{itemize}
+
+\vspace{0.3cm}
+\includegraphics[scale=0.6, angle=0]{images/gmid_id_m1}
+%\captionof{figure}{$I_D$ vs. $V_{GS}$ (escala lineal)}
+%\vspace{0.3cm}
+\includegraphics[scale=0.6, angle=0]{images/gmid_id_m2}
+%\captionof{figure}{$I_D$ vs. $V_{GS}$ (escala lineal)}
+%\vspace{0.3cm}
+\includegraphics[scale=0.6, angle=0]{images/gmid_id_m3}
+%\captionof{figure}{$I_D$ vs. $V_{GS}$ (escala lineal)}
+\begin{figure}[!tbp]
+   \begin{subfigure}[b]{0.3\textwidth}
+   \includegraphics[width=\textwidth]{images/gmid_id_m1}
+   \caption{M1}
+   \label{fig:f1}
+   \end{subfigure}
+ %  \hfill
+   \begin{subfigure}[b]{0.3\textwidth}
+   \includegraphics[width=\textwidth]{images/gmid_id_m2}
+   \caption{M2.}
+   \end{subfigure}
+ \begin{subfigure}[b]{0.3\textwidth}
+   \includegraphics[width=\textwidth]{images/gmid_id_m3}
+   \caption{M3.}
+   \label{fig:f2}
+   \end{subfigure}
+    \caption{gm/id Vs. id}
+\end{figure}
 
 
 
@@ -49,8 +77,6 @@ Comparación de curvas del NMOS para canal largo y canal corto.
 %\vspace{1cm}
 
 %\subsubsection*{Ejercicio 2}
-%Cuando todas las tareas tienen igual prioridad, el orden es: Tarea 4, 1, 2 y 3. Al poner prioridad máxima a la 4 y mínima a la tarea 1, Se ejecutó tarea 4, 3, 2 y 1. Al cambiar la prioridad a todas las tareas, sucedió que el orden en que se ejecutaron las tareas sigue la definición de prioridades. 
-%
 %\vspace{0.2cm}
 %\includegraphics[scale=0.34]{images/tp_3}
 %\captionof{figure}{Captura de pantalla con secuencia 4, 1, 2, 3, ...}
@@ -60,13 +86,8 @@ Comparación de curvas del NMOS para canal largo y canal corto.
 %\vspace{0.5cm}
 
 %\subsubsection*{Ejercicio 3}
-%Agregamos una tarea más, y también creamos una variable global para guardar el \emph{handle} de la tarea 1 (ver línea 8), para poder suspenderla y reanudarla desde la tarea 5 (ver línea 82 y 87):
 %\lstinputlisting[language=C, firstline=32]{src/ejercicio_3.c}
 %% Otro parámetro, por si es necesario cortar el archivo: lastline=157 
-%
-%\includegraphics[scale=0.4]{images/tp_3_ej3}
-%\captionof{figure}{Usando la impresión por pantalla para ver el efecto de suspender/reanudar una tarea...}
-%\vspace{0.2cm}
 %
 %\paragraph{Comentarios}
 %Las tareas se ejecutan según las prioridades asignadas, y es posible verlo a simple vista cuando utilizamos la salida por terminal con la función \verb|DEBUGOUT|. Pero cuando las tareas sólo encienden/apagan los leds, el resultado es un parpadeo conjunto de todos los leds. No se perciben el orden en que se realizan las tareas. Tal funcionamiento es el esperado, y podemos decir que a simple vista las 5 tareas se realizan al mismo tiempo.
