@@ -41,32 +41,45 @@ Comparación de curvas del NMOS para canal largo y canal corto.
 	\item $V_{th}$ de M3 ($L=6\mu$m): $0.680835$V
 \end{itemize}
 
-\vspace{0.3cm}
-\includegraphics[scale=0.6, angle=0]{images/gmid_id_m1}
-%\captionof{figure}{$I_D$ vs. $V_{GS}$ (escala lineal)}
-%\vspace{0.3cm}
-\includegraphics[scale=0.6, angle=0]{images/gmid_id_m2}
-%\captionof{figure}{$I_D$ vs. $V_{GS}$ (escala lineal)}
-%\vspace{0.3cm}
-\includegraphics[scale=0.6, angle=0]{images/gmid_id_m3}
-%\captionof{figure}{$I_D$ vs. $V_{GS}$ (escala lineal)}
+
 \begin{figure}[!tbp]
    \begin{subfigure}[b]{0.3\textwidth}
-   \includegraphics[width=\textwidth]{images/gmid_id_m1}
+       \includegraphics[width=\textwidth]{images/gmid_id_m1}
+   \caption{M1}
+   \label{fig:f1}
+   \end{subfigure}
+   \begin{subfigure}[b]{0.34\textwidth}
+   \includegraphics[width=\textwidth]{images/gmid_id_m2}
+   \caption{M2}
+   \label{fig:f2}
+   \end{subfigure}
+ \begin{subfigure}[b]{0.34\textwidth}
+   \includegraphics[width=\textwidth]{images/gmid_id_m3}
+   \caption{M3}
+   \label{fig:f3}
+   \end{subfigure}
+    %\caption{gm/id Vs. id}
+    \caption{$\frac{g_m}{I_d}$ vs. $I_d$}
+
+\end{figure}
+
+\begin{figure}[!tbp]
+   \begin{subfigure}[b]{0.25\textwidth}
+       \includegraphics[width=\textwidth]{images/gmid_log10id_m1}
    \caption{M1}
    \label{fig:f1}
    \end{subfigure}
  %  \hfill
-   \begin{subfigure}[b]{0.3\textwidth}
-   \includegraphics[width=\textwidth]{images/gmid_id_m2}
+   \begin{subfigure}[b]{0.35\textwidth}
+   \includegraphics[width=\textwidth]{images/gmid_log10id_m2}
    \caption{M2.}
    \end{subfigure}
- \begin{subfigure}[b]{0.3\textwidth}
-   \includegraphics[width=\textwidth]{images/gmid_id_m3}
+ \begin{subfigure}[b]{0.355\textwidth}
+   \includegraphics[width=\textwidth]{images/gmid_log10id_m3}
    \caption{M3.}
    \label{fig:f2}
    \end{subfigure}
-    \caption{gm/id Vs. id}
+    \caption{$\frac{g_m}{I_d}$ vs. $\log_{10}(I_d)$}
 \end{figure}
 
 
