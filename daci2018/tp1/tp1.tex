@@ -13,7 +13,7 @@ Comparación de curvas del NMOS para canal largo y canal corto. El transistor M1
 \captionof{figure}{$I_D$, $\log(I_D)$, $g_m$, $\frac{g_m}{I_D}$ vs. $V_{GS}$ (escala lineal)}
 \label{fig:ids_vgs}
 \end{figure}
-De la simulación de punto de operación, obtenemos los siguientes $V_{th}$ 
+De las simulaciones dc y op obtenemos las curvas de la figura \ref{fig:ids_vgs} y los siguientes $V_{th}$ para cada transistor:
 
 %\subsubsection{$I_D$ vs. $V_{GS}$} 
 \begin{itemize}
@@ -22,8 +22,17 @@ De la simulación de punto de operación, obtenemos los siguientes $V_{th}$
 	\item $V_{th}$ de M3 ($L=6\mu$m): $0.680835$V
 \end{itemize}
 
-Observando la primera curva de la figura \ref{fig:ids_vgs} ($I_D$ vs. $V_{GS}$) vemos una relación cuadrática a partir de $V_{TH}$ entre la tensión de compuerta y la corriente de drenador. Para canal corto se nota menos pronunciada está relación, debido a que en este caso el \emph{pinch-off} se dá lejos del drenador. O dicho de otra forma, tiene mucha influencia el efecto de segundo orden que se desprecia para obtener la función cuadrática. 
+\paragraph{Ley Cuadrática}
 
+Observando la primera curva de la figura \ref{fig:ids_vgs} ($I_D$ vs. $V_{GS}$) vemos una relación cuadrática a partir de $V_{TH}$ entre la tensión de compuerta y la corriente de drenador. Para canal corto se nota menos pronunciada está relación, debido a que en este caso el \emph{pinch-off} se dá lejos del drenador. Otra razón es la degradación de la movilidad de los portadores. En resumen, tienen mucha influencia los efectos de segundo orden que se desprecian para obtener la función cuadrática. 
+
+\paragraph{Variación de la tensión de \emph{threshold}}
+Al mismo tiempo, vemos que el $V_{th}$ del transistor de canal corto tiene un valor menor que M2 y M3, esto es debido principalmente a que el drain y source también aportan a generar carga inmóbil en el canal debido a lo corto del canal, y el gate necesita menor tensión para llegar a la invertir el canal. 
+
+El $V_{th}$ de M3 es menor al de M2 debido al efecto reverso de canal corto (\emph{reverse short-channel effect}), que determina que a medida que crece el largo del canal, decrece el $V_{th}$.
+
+\paragraph{Saturación de velocidad}
+Este efecto se da cuando el campo eléctrico lateral formado por la diferencia de potencial entre drenador y surtidor supera cierto valor (1V/$\mu$m) y la movilidad de los portadores comienza a decaer. Podemos ver saturación de velocidad en el transistor de canal corto si medimos que el incremento de corriente en las curvas paramétricas (Id vs. Vds) es constante.  
 
 
 
