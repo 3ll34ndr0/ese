@@ -32,22 +32,25 @@ Al mismo tiempo, vemos que el $V_{th}$ del transistor de canal corto tiene un va
 El $V_{th}$ de M3 es menor al de M2 debido al efecto reverso de canal corto (\emph{reverse short-channel effect}), que determina que a medida que crece el largo del canal, decrece el $V_{th}$.
 
 \paragraph{Saturación de velocidad}
-Este efecto se da cuando el campo eléctrico lateral formado por la diferencia de potencial entre drenador y surtidor supera cierto valor (1V/$\mu$m) y la movilidad de los portadores comienza a decaer. Podemos ver saturación de velocidad en el transistor de canal corto si medimos que el incremento de corriente en las curvas paramétricas (Id vs. Vds) es constante. Más notable es este efecto en la curva $g_m$ vs. $v_{gs}$ que es prácticamente constante el valor de $g_m$ en la zona de inversión
-fuerte. 
+Este efecto se da cuando el campo eléctrico lateral formado por la diferencia de potencial entre drenador y surtidor supera cierto valor (1V/$\mu$m) y la movilidad de los portadores comienza a decaer. Podemos ver saturación de velocidad en el transistor de canal corto cuando el incremento de corriente en las curvas paramétricas (Id vs. Vds figura \ref{fig:parametric} ) es constante. Más notable es este efecto en la curva $g_m$ vs. $v_{gs}$ que es prácticamente constante el valor de $g_m$ en la zona de inversión fuerte. También ya hemos resaltado este efecto en la curva $I_d$ vs. $V_{gs}$ en M1.
+
+\subsubsection{$\log{(I_D)}$ vs. $V_{GS}$} 
+
+\paragraph{Corrientes sub-umbral}
+Podemos ver en la figura \ref{fig:ids_vgs} (en el segundo conjunto de curvas), que los tres transistores en la zona de subumbral tienen el mismo comportamiento.
 
 
-
-
-
-
-\vspace{0.3cm}
-\includegraphics[scale=0.7]{images/parametric}
+\subsubsection{$I_D$ vs. $V_{GS}$}
+\begin{figure}
+\includegraphics[scale=0.56]{images/parametric}
 \captionof{figure}{$I_D$ vs. $V_{DS}$ , barriendo $V_{GS}$ de forma paramétrica}
-
-
-
-
-
+	\label{fig:parametric}
+\end{figure}
+%Evaluando la curva I D vs. V DS con barrido paramétrico de V GS , SAE Fig:3:
+%• Comparar cómo varía λ para los distintos niveles de I D (cambios en la pendiente de
+%corriente en saturación).
+%• Comparar cómo varía λ para canal corto y canal largo.
+%• Comparar cómo varía I D para un mismo V GS entre canal corto y canal largo.
 
 \begin{figure}[!tbp]
    \begin{subfigure}[b]{0.3\textwidth}
